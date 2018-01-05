@@ -32,7 +32,7 @@ def main():
     if not os.path.exists(inputFile):  
         print( "Sorry, file not found. I'm giving up.")
         return
-    accountTable = {'account1':'1','account2':'2','accountZ':'3'}
+    accountTable = {'account1':'1','account2':'2','accountZ':'3', 'whatever':'4'}
     months = {'January':'01', 'February':'02', 'March':'03', 'April':'04', 'May':'05', 'June':'06','July':'07', 'August':'08','September':'09','October':'10', 'November':'11', 'December':'12'}
     # open the csv file and iterate line by line
     inputText = csv.reader(open(inputFile, 'rU'), delimiter=',')
@@ -43,7 +43,7 @@ def main():
             dateField = date[1] + "-" + months[date[0]] + "-00"
             outputFile = open(dateField +'.csv', 'w')
         count += 1
-        # skip the first heading lines from the file and then only add lines that have data in the last field
+        # skip the first 3 heading lines from the file and then only add lines that have data in the last field
         if count > 4 and line[6] != "":
             # we are ignoring any empty fields below
             line[:] = [item for item in line if item != '']
