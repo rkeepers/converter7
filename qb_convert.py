@@ -5,7 +5,7 @@
 #
 # 28dec2017
 # rkeepers@sparksonline.net
-# v0.01
+# v0.02
 #
 # ToDo: handle account name not found error
 #
@@ -32,7 +32,12 @@ def main():
     if not os.path.exists(inputFile):  
         print( "Sorry, file not found. I'm giving up.")
         return
-    accountTable = {'account1':'1','account2':'2','accountZ':'3', 'whatever':'4'}
+#    accountTable = {'account1':'1','account2':'2','accountZ':'3', 'whatever':'4'}
+    accountTable = {}
+    # get account mappings from external csv file
+    accountsFile = csv.reader(open('accounts.csv', 'rU'))
+    for row in accountsFile:
+      accountTable[row[0]] = row[1] 
     months = {'January':'01', 'February':'02', 'March':'03', 'April':'04', 'May':'05', 'June':'06','July':'07', 'August':'08','September':'09','October':'10', 'November':'11', 'December':'12'}
     # open the csv file and iterate line by line
     inputText = csv.reader(open(inputFile, 'rU'), delimiter=',')
