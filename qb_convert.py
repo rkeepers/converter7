@@ -4,7 +4,7 @@
 #
 #
 # 28dec2017
-# rkeepers@sparksonline.net
+# 
 # v0.02
 #
 # ToDo: handle account name not found error
